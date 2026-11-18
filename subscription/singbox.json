@@ -68,7 +68,7 @@
     {
       "type": "vless",
       "tag": "🇩🇪 Germany · Frankfurt · VLESS",
-      "server": "108.130.132.216",
+      "server": "52.211.72.84",
       "server_port": 443,
       "uuid": "fad6c240-14d0-47ce-9264-21c5f18689c1",
       "flow": "xtls-rprx-vision",
@@ -88,7 +88,7 @@
     {
       "type": "shadowsocks",
       "tag": "🇩🇪 Germany · Frankfurt · SS",
-      "server": "3.71.90.130",
+      "server": "3.121.71.212",
       "server_port": 443,
       "method": "2022-blake3-chacha20-poly1305",
       "password": "8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y="
@@ -96,25 +96,24 @@
     {
       "type": "hysteria2",
       "tag": "🇳🇱 Netherlands · Amsterdam · HY2",
-      "server": "172.239.237.38",
+      "server": "172.233.54.120",
       "server_port": 8443,
-      "password": "eecd4c0143983b6cf81b757a1462a1863b1fea1bdd680a1f7b775bf5725d205c",
+      "password": "be400eba8ba9bcea7297f8e04b531d51332ffad6210ddd0c7303c359de2cffa1",
       "tls": {
         "enabled": true,
         "server_name": "api.push.apple.com",
         "certificate": [
           "-----BEGIN CERTIFICATE-----",
-          "MIIB6zCCAZGgAwIBAgIRAM38yI0lia8rPbgd7o5yQYowCgYIKoZIzj0EAwIwSTER",
-          "MA8GA1UEChMIbG9tZW50J3MxNDAyBgNVBAMTK2NhbGxvcGhpcyByYXlhaHMgc2Fw",
-          "cm9sZWduaWFsZXMgY2ljYXRyaWN1bGEwHhcNMjYwNzAxMTgyODIzWhcNMzcwNjI4",
-          "MTgyODIzWjBJMREwDwYDVQQKEwhsb21lbnQnczE0MDIGA1UEAxMrY2FsbG9waGlz",
-          "IHJheWFocyBzYXByb2xlZ25pYWxlcyBjaWNhdHJpY3VsYTBZMBMGByqGSM49AgEG",
-          "CCqGSM49AwEHA0IABPvoB6VzhZJWLTBIUBJ/q5Y7cmXz/OZRe2jwYEzk5xmnC3dr",
-          "AlzhRs9Lc9jx6y1jLxELswurcAwR34z2MJRMH/6jWjBYMA4GA1UdDwEB/wQEAwIF",
-          "oDATBgNVHSUEDDAKBggrBgEFBQcDATAMBgNVHRMBAf8EAjAAMCMGA1UdEQQcMBqC",
-          "EmFwaS5wdXNoLmFwcGxlLmNvbYcErO/tJjAKBggqhkjOPQQDAgNIADBFAiBtexpg",
-          "v1d1oPLjamXqkhz9WCRcFVUM1SzFRq+xivAiHAIhAJtsHwK0vIGWNDXjqDIetZrx",
-          "/P4m2Y4xbBDeR6fdH02b",
+          "MIIBwDCCAWagAwIBAgIQK10oICcp2rOmp7dflCIiJzAKBggqhkjOPQQDAjA0MTIw",
+          "MAYDVQQDEylhY29sb3V0aG9zIGt5cmllcyB1bmRpc2N1c3NpYmxlIHBlbnRvdGhh",
+          "bDAeFw0yNjA4MDgwNjA2MTNaFw0zODA4MDUwNjA2MTNaMDQxMjAwBgNVBAMTKWFj",
+          "b2xvdXRob3Mga3lyaWVzIHVuZGlzY3Vzc2libGUgcGVudG90aGFsMFkwEwYHKoZI",
+          "zj0CAQYIKoZIzj0DAQcDQgAE0IFzAzSBpsN+1hQh8e+LiFe08GeX4cudaQo+Fg6u",
+          "QXJs/CEI77jOiZ0EK1tjVymPuLp6xLwLJa1hJFTmKJbvbqNaMFgwDgYDVR0PAQH/",
+          "BAQDAgWgMBMGA1UdJQQMMAoGCCsGAQUFBwMBMAwGA1UdEwEB/wQCMAAwIwYDVR0R",
+          "BBwwGoISYXBpLnB1c2guYXBwbGUuY29thwSs6TZ4MAoGCCqGSM49BAMCA0gAMEUC",
+          "IQCC3Tuk+e0pi6IeQR3elwr0gupJ2Ky0AgGB6gOXARQHBAIgafVD8u+K83iMFhxa",
+          "t1NhExrZpe6hyfktihAmU0UUPdo=",
           "-----END CERTIFICATE-----"
         ]
       }
@@ -122,7 +121,7 @@
     {
       "type": "shadowsocks",
       "tag": "🇩🇪 Germany · Frankfurt · SS #2",
-      "server": "35.179.104.167",
+      "server": "18.133.156.56",
       "server_port": 443,
       "method": "2022-blake3-chacha20-poly1305",
       "password": "Cg2Dw4OhdBZhqbeO9ZTA3g/Gk/AvsrYZGhAJeGnQIx4="

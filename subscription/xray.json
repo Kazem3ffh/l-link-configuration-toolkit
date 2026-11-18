@@ -40,7 +40,7 @@
     {
       "protocol": "vless",
       "settings": {
-        "address": "108.130.132.216",
+        "address": "52.211.72.84",
         "port": 443,
         "id": "fad6c240-14d0-47ce-9264-21c5f18689c1",
         "encryption": "none",
@@ -60,7 +60,7 @@
     {
       "protocol": "shadowsocks",
       "settings": {
-        "address": "3.71.90.130",
+        "address": "3.121.71.212",
         "port": 443,
         "method": "2022-blake3-chacha20-poly1305",
         "password": "8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y="
@@ -71,7 +71,7 @@
       "protocol": "hysteria",
       "settings": {
         "version": 2,
-        "address": "172.239.237.38",
+        "address": "172.233.54.120",
         "port": 8443
       },
       "streamSettings": {
@@ -82,11 +82,11 @@
           "alpn": [
             "h3"
           ],
-          "pinnedPeerCertSha256": "fba50904dd2b047c7dccda9d35cc694022347eb85d36e3911ea6b127d4edb912"
+          "pinnedPeerCertSha256": "8cc0985deeff9a0af3fe250b7c6bf3e1bdb45f56053cb2388ea232d895c48ee2"
         },
         "hysteriaSettings": {
           "version": 2,
-          "auth": "eecd4c0143983b6cf81b757a1462a1863b1fea1bdd680a1f7b775bf5725d205c"
+          "auth": "be400eba8ba9bcea7297f8e04b531d51332ffad6210ddd0c7303c359de2cffa1"
         },
         "finalmask": {
           "udp": [
@@ -110,7 +110,7 @@
     {
       "protocol": "shadowsocks",
       "settings": {
-        "address": "35.179.104.167",
+        "address": "18.133.156.56",
         "port": 443,
         "method": "2022-blake3-chacha20-poly1305",
         "password": "Cg2Dw4OhdBZhqbeO9ZTA3g/Gk/AvsrYZGhAJeGnQIx4="
