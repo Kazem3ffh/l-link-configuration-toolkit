@@ -38,14 +38,24 @@
   ],
   "outbounds": [
     {
-      "protocol": "shadowsocks",
+      "protocol": "vless",
       "settings": {
-        "address": "3.121.71.212",
+        "address": "52.211.72.84",
         "port": 443,
-        "method": "2022-blake3-chacha20-poly1305",
-        "password": "8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y="
+        "id": "fad6c240-14d0-47ce-9264-21c5f18689c1",
+        "encryption": "none",
+        "flow": "xtls-rprx-vision"
       },
-      "tag": "l-01-ss"
+      "streamSettings": {
+        "network": "raw",
+        "security": "reality",
+        "realitySettings": {
+          "serverName": "www.amazon.com",
+          "fingerprint": "chrome",
+          "password": "ZODw0ijKEfbSpHjvQqTyYzsbLpnlnA3j9Io5PfmZ-Ts"
+        }
+      },
+      "tag": "l-01-vless"
     },
     {
       "protocol": "hysteria",
@@ -88,29 +98,19 @@
       "tag": "l-02-hy2"
     },
     {
-      "protocol": "vless",
+      "protocol": "shadowsocks",
       "settings": {
-        "address": "52.211.72.84",
+        "address": "18.185.179.73",
         "port": 443,
-        "id": "fad6c240-14d0-47ce-9264-21c5f18689c1",
-        "encryption": "none",
-        "flow": "xtls-rprx-vision"
+        "method": "2022-blake3-chacha20-poly1305",
+        "password": "8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y="
       },
-      "streamSettings": {
-        "network": "raw",
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "www.amazon.com",
-          "fingerprint": "chrome",
-          "password": "ZODw0ijKEfbSpHjvQqTyYzsbLpnlnA3j9Io5PfmZ-Ts"
-        }
-      },
-      "tag": "l-03-vless"
+      "tag": "l-03-ss"
     },
     {
       "protocol": "shadowsocks",
       "settings": {
-        "address": "18.133.156.56",
+        "address": "13.40.32.37",
         "port": 443,
         "method": "2022-blake3-chacha20-poly1305",
         "password": "Cg2Dw4OhdBZhqbeO9ZTA3g/Gk/AvsrYZGhAJeGnQIx4="
@@ -134,7 +134,7 @@
         "selector": [
           "l-"
         ],
-        "fallbackTag": "l-01-ss",
+        "fallbackTag": "l-01-vless",
         "strategy": {
           "type": "leastPing"
         }
