@@ -60,10 +60,10 @@
     {
       "protocol": "shadowsocks",
       "settings": {
-        "address": "3.121.71.212",
+        "address": "18.133.156.56",
         "port": 443,
         "method": "2022-blake3-chacha20-poly1305",
-        "password": "8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y="
+        "password": "Cg2Dw4OhdBZhqbeO9ZTA3g/Gk/AvsrYZGhAJeGnQIx4="
       },
       "tag": "l-02-ss"
     },
@@ -110,10 +110,10 @@
     {
       "protocol": "shadowsocks",
       "settings": {
-        "address": "18.133.156.56",
+        "address": "3.121.71.212",
         "port": 443,
         "method": "2022-blake3-chacha20-poly1305",
-        "password": "Cg2Dw4OhdBZhqbeO9ZTA3g/Gk/AvsrYZGhAJeGnQIx4="
+        "password": "8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y="
       },
       "tag": "l-04-ss"
     },
