@@ -38,71 +38,11 @@
   ],
   "outbounds": [
     {
-      "protocol": "shadowsocks",
-      "settings": {
-        "address": "18.185.179.73",
-        "port": 443,
-        "method": "2022-blake3-chacha20-poly1305",
-        "password": "8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y="
-      },
-      "tag": "l-01-ss"
-    },
-    {
-      "protocol": "hysteria",
-      "settings": {
-        "version": 2,
-        "address": "172.233.54.120",
-        "port": 8443
-      },
-      "streamSettings": {
-        "network": "hysteria",
-        "security": "tls",
-        "tlsSettings": {
-          "serverName": "api.push.apple.com",
-          "alpn": [
-            "h3"
-          ],
-          "pinnedPeerCertSha256": "8cc0985deeff9a0af3fe250b7c6bf3e1bdb45f56053cb2388ea232d895c48ee2"
-        },
-        "hysteriaSettings": {
-          "version": 2,
-          "auth": "be400eba8ba9bcea7297f8e04b531d51332ffad6210ddd0c7303c359de2cffa1"
-        },
-        "finalmask": {
-          "udp": [
-            {
-              "type": "noise",
-              "settings": {
-                "reset": "30-60",
-                "noise": [
-                  {
-                    "rand": "8-64",
-                    "delay": "10-20"
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      "tag": "l-02-hy2"
-    },
-    {
-      "protocol": "shadowsocks",
-      "settings": {
-        "address": "13.40.87.171",
-        "port": 443,
-        "method": "2022-blake3-chacha20-poly1305",
-        "password": "Cg2Dw4OhdBZhqbeO9ZTA3g/Gk/AvsrYZGhAJeGnQIx4="
-      },
-      "tag": "l-03-ss"
-    },
-    {
       "protocol": "vless",
       "settings": {
-        "address": "34.245.56.216",
-        "port": 443,
-        "id": "fad6c240-14d0-47ce-9264-21c5f18689c1",
+        "address": "40.233.1.77",
+        "port": 61503,
+        "id": "04bcfbb8-06d1-4922-ad5a-54ab28b1afda",
         "encryption": "none",
         "flow": "xtls-rprx-vision"
       },
@@ -110,12 +50,85 @@
         "network": "raw",
         "security": "reality",
         "realitySettings": {
-          "serverName": "www.amazon.com",
+          "serverName": "www.cloudflare.com",
           "fingerprint": "chrome",
-          "password": "ZODw0ijKEfbSpHjvQqTyYzsbLpnlnA3j9Io5PfmZ-Ts"
+          "password": "U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU",
+          "shortId": "1f2519bb96e5589c"
+        }
+      },
+      "tag": "l-01-vless"
+    },
+    {
+      "protocol": "shadowsocks",
+      "settings": {
+        "address": "147.224.251.204",
+        "port": 50356,
+        "method": "2022-blake3-chacha20-poly1305",
+        "password": "ZF5zVVjNvtcTkEWiK1sNAzCVZB+Hgu9hHzeOdjBoKMQ="
+      },
+      "tag": "l-02-ss"
+    },
+    {
+      "protocol": "shadowsocks",
+      "settings": {
+        "address": "47.252.43.236",
+        "port": 443,
+        "method": "2022-blake3-chacha20-poly1305",
+        "password": "3NBsnBLanPfG6i3S2GTHineswr6EeSJPb0PCeMQoGoA="
+      },
+      "tag": "l-03-ss"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "address": "130.110.249.115",
+        "port": 58002,
+        "id": "4a74777f-d84c-47f9-808a-9957c5720e91",
+        "encryption": "none",
+        "flow": "xtls-rprx-vision"
+      },
+      "streamSettings": {
+        "network": "raw",
+        "security": "reality",
+        "realitySettings": {
+          "serverName": "www.cloudflare.com",
+          "fingerprint": "chrome",
+          "password": "U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU",
+          "shortId": "1f2519bb96e5589c"
         }
       },
       "tag": "l-04-vless"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "address": "92.5.235.251",
+        "port": 61939,
+        "id": "d5a6bc28-6681-4f10-8c4d-6c0301befd6b",
+        "encryption": "none",
+        "flow": "xtls-rprx-vision"
+      },
+      "streamSettings": {
+        "network": "raw",
+        "security": "reality",
+        "realitySettings": {
+          "serverName": "www.cloudflare.com",
+          "fingerprint": "chrome",
+          "password": "U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU",
+          "shortId": "1f2519bb96e5589c"
+        }
+      },
+      "tag": "l-05-vless"
+    },
+    {
+      "protocol": "shadowsocks",
+      "settings": {
+        "address": "163.176.97.54",
+        "port": 59319,
+        "method": "2022-blake3-chacha20-poly1305",
+        "password": "DQP/HtsXEDK5KPA72ak9jW1yY0OPtS79n4QysjFs8pw="
+      },
+      "tag": "l-06-ss"
     },
     {
       "tag": "direct",
@@ -134,7 +147,7 @@
         "selector": [
           "l-"
         ],
-        "fallbackTag": "l-01-ss",
+        "fallbackTag": "l-01-vless",
         "strategy": {
           "type": "leastPing"
         }
