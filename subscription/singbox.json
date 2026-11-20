@@ -46,9 +46,9 @@
       "outbounds": [
         "👽 Anonymous L 🌐",
         "🇩🇪 Germany · Frankfurt · VLESS",
-        "🇳🇱 Netherlands · Amsterdam · HY2",
         "🇩🇪 Germany · Frankfurt · SS",
-        "🇩🇪 Germany · Frankfurt · SS #2"
+        "🇩🇪 Germany · Frankfurt · SS #2",
+        "🇳🇱 Netherlands · Amsterdam · HY2"
       ],
       "default": "👽 Anonymous L 🌐"
     },
@@ -57,9 +57,9 @@
       "tag": "👽 Anonymous L 🌐",
       "outbounds": [
         "🇩🇪 Germany · Frankfurt · VLESS",
-        "🇳🇱 Netherlands · Amsterdam · HY2",
         "🇩🇪 Germany · Frankfurt · SS",
-        "🇩🇪 Germany · Frankfurt · SS #2"
+        "🇩🇪 Germany · Frankfurt · SS #2",
+        "🇳🇱 Netherlands · Amsterdam · HY2"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "3m",
@@ -68,7 +68,7 @@
     {
       "type": "vless",
       "tag": "🇩🇪 Germany · Frankfurt · VLESS",
-      "server": "52.211.72.84",
+      "server": "34.243.162.199",
       "server_port": 443,
       "uuid": "fad6c240-14d0-47ce-9264-21c5f18689c1",
       "flow": "xtls-rprx-vision",
@@ -84,6 +84,22 @@
           "public_key": "ZODw0ijKEfbSpHjvQqTyYzsbLpnlnA3j9Io5PfmZ-Ts"
         }
       }
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "🇩🇪 Germany · Frankfurt · SS",
+      "server": "18.185.179.73",
+      "server_port": 443,
+      "method": "2022-blake3-chacha20-poly1305",
+      "password": "8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y="
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "🇩🇪 Germany · Frankfurt · SS #2",
+      "server": "13.40.32.37",
+      "server_port": 443,
+      "method": "2022-blake3-chacha20-poly1305",
+      "password": "Cg2Dw4OhdBZhqbeO9ZTA3g/Gk/AvsrYZGhAJeGnQIx4="
     },
     {
       "type": "hysteria2",
@@ -109,22 +125,6 @@
           "-----END CERTIFICATE-----"
         ]
       }
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "🇩🇪 Germany · Frankfurt · SS",
-      "server": "18.185.179.73",
-      "server_port": 443,
-      "method": "2022-blake3-chacha20-poly1305",
-      "password": "8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y="
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "🇩🇪 Germany · Frankfurt · SS #2",
-      "server": "13.40.32.37",
-      "server_port": 443,
-      "method": "2022-blake3-chacha20-poly1305",
-      "password": "Cg2Dw4OhdBZhqbeO9ZTA3g/Gk/AvsrYZGhAJeGnQIx4="
     },
     {
       "type": "direct",
