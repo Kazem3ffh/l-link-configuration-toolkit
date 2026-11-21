@@ -2,7 +2,10 @@ import os
 import tempfile
 from pathlib import Path
 
+
 from .errors import OutputError
+
+
 
 
 def _atomic_write(directory, target, content):
@@ -22,12 +25,14 @@ def _atomic_write(directory, target, content):
         raise
 
 
-def write_files(directory, files, allow_empty=()):
+
+
+def write_files(directory, files):
     directory = Path(directory)
     directory.mkdir(parents=True, exist_ok=True)
     pending = []
     for name, content in files.items():
-        if not isinstance(content, bytes) or (not content and name not in allow_empty):
+        if not isinstance(content, bytes) or not content:
             raise OutputError("refusing to write empty content for %s" % name)
         target = directory / name
         try:
@@ -61,20 +66,6 @@ def write_files(directory, files, allow_empty=()):
     return [name for name, _, _ in replaced]
 
 
+
+
 def _discard(staged):
-    for _, _, tmp_name, _ in staged:
-        try:
-            os.unlink(tmp_name)
-        except OSError:
-            pass
-
-
-def _rollback(directory, replaced):
-    for name, target, previous in replaced:
-        try:
-            if previous is None:
-                os.unlink(target)
-            else:
-                _atomic_write(directory, target, previous)
-        except OSError:
-            pass
