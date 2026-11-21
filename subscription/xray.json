@@ -40,9 +40,9 @@
     {
       "protocol": "vless",
       "settings": {
-        "address": "139.144.213.41",
-        "port": 58445,
-        "id": "3c85ce20-de47-4ded-b9f8-631ead1eb4fe",
+        "address": "172.238.239.99",
+        "port": 58223,
+        "id": "7b7e5a21-bdd8-4d35-8c95-d10e10806443",
         "encryption": "none",
         "flow": "xtls-rprx-vision"
       },
@@ -59,42 +59,31 @@
       "tag": "l-01-vless"
     },
     {
-      "protocol": "vless",
+      "protocol": "shadowsocks",
       "settings": {
-        "address": "130.110.249.115",
-        "port": 58002,
-        "id": "4a74777f-d84c-47f9-808a-9957c5720e91",
-        "encryption": "none",
-        "flow": "xtls-rprx-vision"
+        "address": "134.98.147.246",
+        "port": 45819,
+        "method": "2022-blake3-chacha20-poly1305",
+        "password": "e/QkpBIjUrBS16dD4r0v3UuEEKwqUOgv3eAX05gAWrw="
       },
-      "streamSettings": {
-        "network": "raw",
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "www.cloudflare.com",
-          "fingerprint": "chrome",
-          "password": "U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU",
-          "shortId": "1f2519bb96e5589c"
-        }
-      },
-      "tag": "l-02-vless"
+      "tag": "l-02-ss"
     },
     {
       "protocol": "shadowsocks",
       "settings": {
-        "address": "163.176.199.62",
+        "address": "163.176.97.54",
         "port": 59319,
         "method": "2022-blake3-chacha20-poly1305",
-        "password": "cgET1mwP/s+Txk3tklREpluXrjpPThb/Pp+AwGEMTzo="
+        "password": "DQP/HtsXEDK5KPA72ak9jW1yY0OPtS79n4QysjFs8pw="
       },
       "tag": "l-03-ss"
     },
     {
       "protocol": "vless",
       "settings": {
-        "address": "92.5.235.251",
-        "port": 61939,
-        "id": "d5a6bc28-6681-4f10-8c4d-6c0301befd6b",
+        "address": "83.229.15.164",
+        "port": 58515,
+        "id": "d3df3b53-64ee-4203-8156-281276debe6e",
         "encryption": "none",
         "flow": "xtls-rprx-vision"
       },
@@ -113,10 +102,10 @@
     {
       "protocol": "shadowsocks",
       "settings": {
-        "address": "129.151.80.124",
+        "address": "129.151.88.95",
         "port": 61312,
         "method": "2022-blake3-chacha20-poly1305",
-        "password": "/XyGbmzPzEUuXch3ZdjVG1hGBoOo7opinAz009S3ezw="
+        "password": "0B92pfpNPb6EvlY+MpHdpgXcJtH+sHHv+NWeyW374HI="
       },
       "tag": "l-05-ss"
     },
