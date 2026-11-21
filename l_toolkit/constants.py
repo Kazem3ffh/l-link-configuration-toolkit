@@ -1,3 +1,5 @@
+import base64
+
 from . import __version__
 
 DEFAULT_COUNTRY = "IR"
@@ -40,3 +42,11 @@ URLTEST_URL = "https://www.gstatic.com/generate_204"
 PROFILE_NAME = "\U0001F47D Anonymous L \U0001F680"
 URLTEST_NAME = "\U0001F47D Anonymous L \U0001F310"
 IRAN_RULES_BASE_URL = "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/"
+
+SUBSCRIPTION_HEADER = (
+    "//profile-title: base64:" + base64.b64encode(PROFILE_NAME.encode("utf-8")).decode("ascii"),
+    "//profile-update-interval: 1",
+    "//subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531",
+    "//support-url: https://t.me/An0nymou3Bot",
+    "//profile-web-page-url: https://github.com/4n0nymou3",
+)
