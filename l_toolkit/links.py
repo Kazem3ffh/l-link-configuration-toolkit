@@ -3,6 +3,7 @@ import hashlib
 import ssl
 from urllib.parse import parse_qs, parse_qsl, quote, unquote, urlsplit
 
+from . import constants as C
 from .errors import ValidationError
 
 PROTOCOL_LABELS = {"shadowsocks": "SS", "vless": "VLESS", "hysteria2": "HY2"}
@@ -200,3 +201,34 @@ def check_link(link, proxy):
             raise ValidationError("hysteria2 certificate pin does not match")
         return
     _check_vless(parts, outbound)
+
+
+def render_subscription(links):
+    lines = list(C.SUBSCRIPTION_HEADER)
+    if links:
+        lines.append("")
+        lines.extend(links)
+    return ("\n".join(lines) + "\n").encode("utf-8")
+
+
+def split_subscription(content):
+    try:
+        text = content.decode("utf-8")
+    except UnicodeDecodeError as exc:
+        raise ValidationError("the subscription is not valid UTF-8") from exc
+    if "\r" in text or not text.endswith("\n"):
+        raise ValidationError("the subscription must use plain newlines and end with one")
+    lines = text.split("\n")[:-1]
+    header = []
+    while len(header) < len(lines) and lines[len(header)].startswith("//"):
+        header.append(lines[len(header)])
+    if header != list(C.SUBSCRIPTION_HEADER):
+        raise ValidationError("the subscription header is missing or changed")
+    rest = lines[len(header):]
+    if rest:
+        if rest[0] != "":
+            raise ValidationError("the header must be followed by exactly one blank line")
+        rest = rest[1:]
+    if any(not line.strip() or line.startswith("//") for line in rest):
+        raise ValidationError("the subscription contains a blank or comment line among the links")
+    return header, rest
