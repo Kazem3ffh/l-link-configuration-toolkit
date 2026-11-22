@@ -2,10 +2,7 @@ import os
 import tempfile
 from pathlib import Path
 
-
 from .errors import OutputError
-
-
 
 
 def _atomic_write(directory, target, content):
@@ -23,8 +20,6 @@ def _atomic_write(directory, target, content):
         except OSError:
             pass
         raise
-
-
 
 
 def write_files(directory, files):
@@ -66,6 +61,20 @@ def write_files(directory, files):
     return [name for name, _, _ in replaced]
 
 
-
-
 def _discard(staged):
+    for _, _, tmp_name, _ in staged:
+        try:
+            os.unlink(tmp_name)
+        except OSError:
+            pass
+
+
+def _rollback(directory, replaced):
+    for name, target, previous in replaced:
+        try:
+            if previous is None:
+                os.unlink(target)
+            else:
+                _atomic_write(directory, target, previous)
+        except OSError:
+            pass
