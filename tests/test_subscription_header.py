@@ -112,4 +112,4 @@ def test_the_two_json_outputs_do_not_get_a_header(make_session, make_client, tmp
     for name in ("singbox.json", "xray.json"):
         content = (tmp_path / "out" / name).read_text(encoding="utf-8")
         assert content.startswith("{") and "profile-title" not in content
-    json.loads(content)
+        json.loads(content)
