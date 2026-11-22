@@ -351,7 +351,7 @@ def test_the_readme_documents_the_key_facts():
         "holds only the header",
         "vless_without_security",
         "No output file is ever written empty",
-    "profile-update-interval",
+        "profile-update-interval",
         "docs/UPSTREAM.md",
         "THIRD_PARTY_NOTICES.md",
         "tools/cores.lock.json",
