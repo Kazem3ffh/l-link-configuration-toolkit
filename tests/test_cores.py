@@ -1041,7 +1041,7 @@ def test_hiddify_applies_xudp_to_a_vless_link_with_or_without_the_parameter(tmp_
         cwd=str(tmp_path),
         timeout=60,
     )
-        outbound = json.loads(parsed.read_text(encoding="utf-8"))["outbounds"][0]
+    outbound = json.loads(parsed.read_text(encoding="utf-8"))["outbounds"][0]
     assert outbound.get("packet_encoding") == "xudp"
 
 
