@@ -5,8 +5,8 @@
 //profile-web-page-url: https://github.com/4n0nymou3
 
 vless://8c307614-d87d-4c1a-8b94-c9b1b66d6bc1@129.151.208.3:63385?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.cloudflare.com&fp=chrome&pbk=U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU&sid=1f2519bb96e5589c&type=tcp#%F0%9F%87%B8%F0%9F%87%AA%20Sweden%20%C2%B7%20Stockholm%20%C2%B7%20VLESS
-vless://5cdf3275-5745-460c-a3fa-58133720d1cd@109.61.39.135:63646?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.cloudflare.com&fp=chrome&pbk=U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU&sid=1f2519bb96e5589c&type=tcp#%F0%9F%87%B0%F0%9F%87%BF%20Kazakhstan%20%C2%B7%20Almaty%20%C2%B7%20VLESS
+vless://dd1389d1-2573-4a1d-bb35-96b4b05c855a@155.181.37.142:59647?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.cloudflare.com&fp=chrome&pbk=U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU&sid=1f2519bb96e5589c&type=tcp#%F0%9F%87%A8%F0%9F%87%B1%20Chile%20%C2%B7%20Valparaiso%20%C2%B7%20VLESS
+ss://MjAyMi1ibGFrZTMtY2hhY2hhMjAtcG9seTEzMDU6MEI5MnBmcE5QYjZFdmxZK01wSGRwZ1hjSnRIK3NISHYrTldleVczNzRIST0@129.151.88.95:61312#%F0%9F%87%AC%F0%9F%87%A7%20United%20Kingdom%20%C2%B7%20Cardiff%20%C2%B7%20SS
 ss://MjAyMi1ibGFrZTMtY2hhY2hhMjAtcG9seTEzMDU6M05Cc25CTGFuUGZHNmkzUzJHVEhpbmVzd3I2RWVTSlBiMFBDZU1Rb0dvQT0@47.85.227.36:443#%F0%9F%87%A9%F0%9F%87%AA%20Germany%20%C2%B7%20Frankfurt%20%C2%B7%20SS
-ss://MjAyMi1ibGFrZTMtY2hhY2hhMjAtcG9seTEzMDU6TTVsNThGTE56OWJLTEdzZFRUWTFFSlpxTWxpUFN0U0o4S3VvdWY4dlluMD0@51.170.184.86:45819#%F0%9F%87%B3%F0%9F%87%B1%20Netherlands%20%C2%B7%20Amsterdam%20%C2%B7%20SS
+ss://MjAyMi1ibGFrZTMtY2hhY2hhMjAtcG9seTEzMDU6SmxZV2Z5UEdlQzNiWURjbDJoSkNzZ09EZWMzNnJ1YTVZVG9MQ3hjZ3JFTT0@144.22.168.108:59319#%F0%9F%87%A7%F0%9F%87%B7%20Brazil%20%C2%B7%20S%C3%A3o%20Paulo%20%C2%B7%20SS
 ss://MjAyMi1ibGFrZTMtY2hhY2hhMjAtcG9seTEzMDU6ZjdQN2o5dURYeXJ2NkNVajIydWpJQXNnbFU1c0docmpST0FvUFhEL3RBMD0@141.148.145.76:50356#%F0%9F%87%BA%F0%9F%87%B8%20U.S.A.%20%C2%B7%20Phoenix%20%C2%B7%20SS
-vless://875ce12a-4719-40b7-b290-dcc4a79b1b85@82.158.120.241:58088?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.cloudflare.com&fp=chrome&pbk=U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU&sid=1f2519bb96e5589c&type=tcp#%F0%9F%87%A9%F0%9F%87%AA%20Germany%20%C2%B7%20Frankfurt%20%C2%B7%20VLESS

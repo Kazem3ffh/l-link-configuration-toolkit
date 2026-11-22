@@ -61,9 +61,9 @@
     {
       "protocol": "vless",
       "settings": {
-        "address": "109.61.39.135",
-        "port": 63646,
-        "id": "5cdf3275-5745-460c-a3fa-58133720d1cd",
+        "address": "155.181.37.142",
+        "port": 59647,
+        "id": "dd1389d1-2573-4a1d-bb35-96b4b05c855a",
         "encryption": "none",
         "flow": "xtls-rprx-vision"
       },
@@ -82,22 +82,32 @@
     {
       "protocol": "shadowsocks",
       "settings": {
-        "address": "47.85.227.36",
-        "port": 443,
+        "address": "129.151.88.95",
+        "port": 61312,
         "method": "2022-blake3-chacha20-poly1305",
-        "password": "3NBsnBLanPfG6i3S2GTHineswr6EeSJPb0PCeMQoGoA="
+        "password": "0B92pfpNPb6EvlY+MpHdpgXcJtH+sHHv+NWeyW374HI="
       },
       "tag": "l-03-ss"
     },
     {
       "protocol": "shadowsocks",
       "settings": {
-        "address": "51.170.184.86",
-        "port": 45819,
+        "address": "47.85.227.36",
+        "port": 443,
         "method": "2022-blake3-chacha20-poly1305",
-        "password": "M5l58FLNz9bKLGsdTTY1EJZqMliPStSJ8Kuouf8vYn0="
+        "password": "3NBsnBLanPfG6i3S2GTHineswr6EeSJPb0PCeMQoGoA="
       },
       "tag": "l-04-ss"
+    },
+    {
+      "protocol": "shadowsocks",
+      "settings": {
+        "address": "144.22.168.108",
+        "port": 59319,
+        "method": "2022-blake3-chacha20-poly1305",
+        "password": "JlYWfyPGeC3bYDcl2hJCsgODec36rua5YToLCxcgrEM="
+      },
+      "tag": "l-05-ss"
     },
     {
       "protocol": "shadowsocks",
@@ -107,28 +117,7 @@
         "method": "2022-blake3-chacha20-poly1305",
         "password": "f7P7j9uDXyrv6CUj22ujIAsglU5sGhrjROAoPXD/tA0="
       },
-      "tag": "l-05-ss"
-    },
-    {
-      "protocol": "vless",
-      "settings": {
-        "address": "82.158.120.241",
-        "port": 58088,
-        "id": "875ce12a-4719-40b7-b290-dcc4a79b1b85",
-        "encryption": "none",
-        "flow": "xtls-rprx-vision"
-      },
-      "streamSettings": {
-        "network": "raw",
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "www.cloudflare.com",
-          "fingerprint": "chrome",
-          "password": "U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU",
-          "shortId": "1f2519bb96e5589c"
-        }
-      },
-      "tag": "l-06-vless"
+      "tag": "l-06-ss"
     },
     {
       "tag": "direct",
