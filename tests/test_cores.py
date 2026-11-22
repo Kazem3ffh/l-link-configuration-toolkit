@@ -1041,5 +1041,33 @@ def test_hiddify_applies_xudp_to_a_vless_link_with_or_without_the_parameter(tmp_
         cwd=str(tmp_path),
         timeout=60,
     )
-    outbound = json.loads(parsed.read_text(encoding="utf-8"))["outbounds"][0]
+        outbound = json.loads(parsed.read_text(encoding="utf-8"))["outbounds"][0]
     assert outbound.get("packet_encoding") == "xudp"
+
+
+@need_hiddify
+def test_hiddify_core_ignores_the_header_lines_when_it_parses_the_links(tmp_path):
+    from l_toolkit.links import split_subscription
+
+    out = generate(tmp_path, [ss_outbound(8388), reality_outbound(443, "A" * 43)])
+    header, links = split_subscription((out / "sub.txt").read_bytes())
+    assert len(header) == 5 and len(links) == 2
+    plain = tmp_path / "plain.txt"
+    plain.write_text("\n".join(links) + "\n", encoding="utf-8")
+
+    def parse(source, name):
+        target = tmp_path / name
+        subprocess.run(
+            [HIDDIFY, "parse", str(source), "-o", str(target)],
+            check=True,
+            capture_output=True,
+            env=hiddify_env(),
+            cwd=str(tmp_path),
+            timeout=60,
+        )
+        return json.loads(target.read_text(encoding="utf-8"))["outbounds"]
+
+    with_header = parse(out / "sub.txt", "with_header.json")
+    without_header = parse(plain, "without_header.json")
+    assert [o["type"] for o in with_header] == ["shadowsocks", "vless"]
+    assert with_header == without_header
