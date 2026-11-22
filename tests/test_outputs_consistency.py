@@ -7,6 +7,7 @@ import pytest
 from certs import make_pem
 
 from l_toolkit.extract import extract
+from l_toolkit.links import split_subscription
 from l_toolkit.pipeline import render
 from l_toolkit import constants as C
 
@@ -63,7 +64,7 @@ def hysteria2x(junk):
 def build(outbounds, hysteria2_links="include"):
     extraction = extract({"options": {"outbounds": outbounds}})
     files, _ = render(extraction, 1, hysteria2_links)
-    links = files[C.SUBSCRIPTION_LINKS_FILE].decode("utf-8").splitlines()
+    _, links = split_subscription(files[C.SUBSCRIPTION_LINKS_FILE])
     profile = json.loads(files[C.SUBSCRIPTION_SINGBOX_FILE])
     xray = json.loads(files[C.SUBSCRIPTION_XRAY_FILE])
     return extraction, links, profile, xray
