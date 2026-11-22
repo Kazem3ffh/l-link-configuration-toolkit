@@ -86,6 +86,19 @@ The folders `state/` and `subscription/` are created by the first successful run
 - Python 3.12 (used by the workflows); the packages in `requirements.txt` (`requests`, `cryptography`).
 - Only for running the real-core tests locally: the Xray-core, sing-box and Hiddify core binaries (the test workflow downloads them for you).
 
+## Running Locally
+
+```
+python -m pip install -r requirements.txt
+python -m l_toolkit --generate-key                      # prints a new encryption key
+export L_STATE_ENCRYPTION_KEY="<the printed key>"
+python -m l_toolkit --bootstrap create                  # first run: creates the account, writes state/ and subscription/
+python -m l_toolkit                                     # later runs
+python -m l_toolkit --help                              # every flag
+```
+
+A local run contacts the upstream service for real and writes `state/upstream-account.enc` and `subscription/` in the current directory. Use a different key and state file for local experiments than for the repository. The tests do not need any of this; see [Testing](#testing).
+
 ## Fork and Setup
 
 1. **Fork** the repository, or create your own copy. In a fork, open the **Actions** tab and enable workflows (GitHub keeps scheduled workflows off in forks until you do).
@@ -103,6 +116,28 @@ Recovery options of the manual run (*Run workflow → bootstrap*):
 | `none` | Normal run (the default, also used by the schedule). |
 | `create` | First setup. Refuses to run if an encrypted state already exists. |
 | `recreate` | Replaces the account on purpose, for example after the upstream rejected it or after you changed the key. |
+
+## GitHub Actions
+
+| Workflow | File | Runs on | Purpose |
+| --- | --- | --- | --- |
+| Update Subscription | `.github/workflows/update-subscription.yml` | schedule and manual start | Builds the outputs and commits them. |
+| Tests | `.github/workflows/tests.yml` | push to `main`, pull requests, manual start | Offline tests and real-core tests. |
+
+**Schedule.** The update runs every hour at minute 23 (UTC) (`cron: "23 * * * *"`). GitHub may start a scheduled run late, or skip one under load. Runs never overlap and a running update is never cancelled by a newer one. A failed run does not start another one.
+
+**Manual run.** *Actions → Update Subscription → Run workflow*. The `bootstrap` input is `none` for a normal run, `create` for the first setup and `recreate` to replace the account on purpose.
+
+**Permissions.** The update job has `contents: write` (to commit the outputs) and nothing else; the workflow default is no permissions. The test workflow has `contents: read` only. Pull request workflows get no secrets, and the test workflow does not reference any.
+
+**Secrets and variables.**
+
+| Name | Kind | Needed | Meaning |
+| --- | --- | --- | --- |
+| `L_STATE_ENCRYPTION_KEY` | repository secret | yes | The key that encrypts the account state. The value is never printed. |
+| `L_HYSTERIA2_LINKS` | repository variable | no | `include` adds Hysteria2 links to `sub.txt` (see [Security](#security)). |
+
+No other secret is needed; the commit uses the workflow's own temporary token.
 
 ## Configuration
 
@@ -138,18 +173,32 @@ In a fork replace the user and repository name with yours. Add the address as a 
 
 Names inside the files follow the TCB style: the Xray `remarks` and the sing-box selector are `👽 Anonymous L 🚀`, the automatic latency group is `👽 Anonymous L 🌐`, and every link carries its own name such as `🇩🇪 Germany · Frankfurt · SS`. Hiddify names a remote profile from its URL, so add `#👽 Anonymous L 🚀` to the end of the address there.
 
-The job runs every hour at minute 23 (UTC). GitHub may start a scheduled run late or skip one under load. Runs never overlap and are never cancelled by newer ones. A failed run does not start another one.
-
 ## Output Files
 
 | File | Content |
 | --- | --- |
-| `subscription/sub.txt` | One share link per line (`ss://`, `vless://`, and `hysteria2://` only if enabled). |
+| `subscription/sub.txt` | A fixed profile header, one blank line, then one share link per line (`ss://`, `vless://`, and `hysteria2://` only if enabled). |
 | `subscription/singbox.json` | Complete sing-box client profile: TUN inbound, DNS, routing rules, a selector and an automatic latency group. |
 | `subscription/xray.json` | Complete Xray client configuration: SOCKS (10808) and HTTP (10809) inbounds, a latency based balancer. |
 | `state/upstream-account.enc` | Encrypted account state. Not a client file. |
 
-If Hysteria2 is the only protocol in a response and its links are off, `sub.txt` is published **empty (0 bytes)** while the two JSON files are still published, so that old links do not linger. `sub.txt` is the only file that may be empty; the JSON files are never written empty.
+**The `sub.txt` header.** The file always starts with the same five lines, then one blank line, then the links:
+```
+//profile-title: base64:8J+RvSBBbm9ueW1vdXMgTCDwn5qA
+//profile-update-interval: 1
+//subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
+//support-url: https://t.me/An0nymou3Bot
+//profile-web-page-url: https://github.com/4n0nymou3
+
+ss://...
+vless://...
+```
+
+The title is the base64 of `👽 Anonymous L 🚀`, the update interval is in hours, and the `subscription-userinfo` values are static presentation data, not a real quota. The header is built from constants, so it is identical on every run. A strict check refuses to publish a file whose header, blank line or links deviate from this format.
+
+How clients treat it (read from their source code): Hiddify core reads lines that start with `//` or `#` among the first 30 lines of a subscription as profile metadata (title, update interval, subscription info; the support and web page addresses are only used together with `subscription-userinfo`), and v2rayNG skips every line that is not a known link. Tested with the real Hiddify core 5.9.8: the links are parsed identically with and without the header. The metadata display inside the Hiddify app itself was not run here.
+
+If Hysteria2 is the only protocol in a response and its links are off, `sub.txt` holds only the header (no configs) while the two JSON files are still published, so that old links do not linger. A client cannot import configs from a header-only file (Hiddify core rejects it). No output file is ever written empty.
 
 ## Compatibility
 
