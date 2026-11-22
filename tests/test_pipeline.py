@@ -294,21 +294,21 @@ def test_all_three_protocols_with_links_omitted_keep_two_links_and_three_json_en
     assert result.link_count == 2 and result.links_omitted == 1
 
 
-def test_old_links_are_removed_when_sub_becomes_empty(make_session, make_client, tmp_path, key, config_response):
+def test_old_links_are_removed_when_no_link_remains(make_session, make_client, tmp_path, key, config_response):
     go(make_client, make_session(), tmp_path, key, bootstrap="create")
     before = sub_lines(tmp_path)
     assert len(before) == 2
     session = make_session(config=only_hysteria2(config_response))
     result = go(make_client, session, tmp_path, key)
     out = layout(tmp_path)[1]
-    assert (out / "sub.txt").read_bytes() == b""
+    assert (out / "sub.txt").read_bytes() == render_subscription([])
     assert "sub.txt" in result.changed
     assert json_protocols(tmp_path) == (["hysteria2"], ["hysteria"])
     stale = [line.split("#")[0] for line in before]
     assert not any(link in (out / "singbox.json").read_text(encoding="utf-8") for link in stale)
 
 
-def test_an_empty_sub_that_stays_empty_is_not_reported_as_changed(make_session, make_client, tmp_path, key, config_response):
+def test_a_header_only_sub_that_stays_header_only_is_not_reported_as_changed(make_session, make_client, tmp_path, key, config_response):
     go(make_client, make_session(config=only_hysteria2(config_response)), tmp_path, key, bootstrap="create")
     result = go(make_client, make_session(config=only_hysteria2(config_response)), tmp_path, key)
     assert result.changed == []
