@@ -171,7 +171,7 @@ In a fork replace the user and repository name with yours. Add the address as a 
 - `singbox.json`: sing-box apps and Hiddify (JSON profile).
 - `xray.json`: Xray-core and clients that accept a full Xray configuration.
 
-Names inside the files follow the TCB style: the Xray `remarks` and the sing-box selector are `👽 Anonymous L 🚀`, the automatic latency group is `👽 Anonymous L 🌐`, and every link carries its own name such as `🇩🇪 Germany · Frankfurt · SS`. Hiddify names a remote profile from its URL, so add `#👽 Anonymous L 🚀` to the end of the address there.
+Names inside the files follow the TCB style: the Xray `remarks` and the sing-box selector are `👽 Anonymous L 🚀`, the automatic latency group is `👽 Anonymous L 🌐`, and every link carries its own name such as `🇩🇪 Germany · Frankfurt · SS`. Hiddify takes the name of `sub.txt` from its header; for the two JSON files it names a remote profile from the URL, so add `#👽 Anonymous L 🚀` to the end of their addresses there.
 
 ## Output Files
 
@@ -183,6 +183,7 @@ Names inside the files follow the TCB style: the Xray `remarks` and the sing-box
 | `state/upstream-account.enc` | Encrypted account state. Not a client file. |
 
 **The `sub.txt` header.** The file always starts with the same five lines, then one blank line, then the links:
+
 ```
 //profile-title: base64:8J+RvSBBbm9ueW1vdXMgTCDwn5qA
 //profile-update-interval: 1
