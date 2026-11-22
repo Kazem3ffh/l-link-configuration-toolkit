@@ -15,6 +15,7 @@ from l_toolkit.errors import (
     ValidationError,
 )
 from l_toolkit.guard import ensure_no_state_in_files
+from l_toolkit.links import render_subscription, split_subscription
 from l_toolkit.pipeline import run
 from l_toolkit.state import generate_key_text, load_encrypted_state, parse_key
 
@@ -208,7 +209,7 @@ def test_rotated_config_updates_all_three_files(make_session, make_client, tmp_p
 def test_hysteria2_is_left_out_of_share_links_by_default_but_not_of_the_json_files(make_session, make_client, tmp_path, key):
     result = go(make_client, make_session(), tmp_path, key, bootstrap="create")
     out = layout(tmp_path)[1]
-    links = (out / "sub.txt").read_text(encoding="utf-8").splitlines()
+    links = sub_lines(tmp_path)
     assert [link.split("://")[0] for link in links] == ["ss", "vless"]
     assert result.link_count == 2 and result.links_omitted == 1 and result.count == 3
     profile = json.loads((out / "singbox.json").read_text(encoding="utf-8"))
@@ -227,7 +228,7 @@ def test_hysteria2_is_left_out_of_share_links_by_default_but_not_of_the_json_fil
 
 def test_hysteria2_links_can_be_enabled_explicitly(make_session, make_client, tmp_path, key):
     result = go(make_client, make_session(), tmp_path, key, bootstrap="create", hysteria2_links="include")
-    links = (layout(tmp_path)[1] / "sub.txt").read_text(encoding="utf-8").splitlines()
+    links = sub_lines(tmp_path)
     assert [link.split("://")[0] for link in links] == ["ss", "vless", "hysteria2"]
     assert result.links_omitted == 0
 
@@ -247,7 +248,7 @@ def keep_types(config_response, *types):
 
 
 def sub_lines(tmp_path):
-    return (layout(tmp_path)[1] / "sub.txt").read_text(encoding="utf-8").splitlines()
+    return split_subscription((layout(tmp_path)[1] / "sub.txt").read_bytes())[1]
 
 
 def json_protocols(tmp_path):
@@ -259,11 +260,12 @@ def json_protocols(tmp_path):
     return singbox_types, xray_types
 
 
-def test_only_hysteria2_with_links_omitted_still_publishes_both_json_files_and_an_empty_sub(make_session, make_client, tmp_path, key, config_response):
+def test_only_hysteria2_with_links_omitted_still_publishes_both_json_files_and_a_header_only_sub(make_session, make_client, tmp_path, key, config_response):
     session = make_session(config=only_hysteria2(config_response))
     result = go(make_client, session, tmp_path, key, bootstrap="create")
     out = layout(tmp_path)[1]
-    assert (out / "sub.txt").exists() and (out / "sub.txt").read_bytes() == b""
+    assert (out / "sub.txt").read_bytes() == render_subscription([])
+    assert split_subscription((out / "sub.txt").read_bytes()) == (list(C.SUBSCRIPTION_HEADER), [])
     assert json_protocols(tmp_path) == (["hysteria2"], ["hysteria"])
     assert result.count == 1 and result.link_count == 0 and result.links_omitted == 1
     assert sorted(result.changed) == ["singbox.json", "sub.txt", "xray.json"]
