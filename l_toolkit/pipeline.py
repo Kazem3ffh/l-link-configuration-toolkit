@@ -8,7 +8,7 @@ from . import constants as C
 from .errors import ApiError, StateError, StateExistsError, ValidationError
 from .extract import extract
 from .guard import ensure_no_state_in_files
-from .links import build_link, unique_names
+from .links import build_link, render_subscription, split_subscription, unique_names
 from .output import write_files
 from .singbox import RESERVED_TAGS, build_profile, render_profile
 from .state import State, load_encrypted_state, save_encrypted_state, state_exists
@@ -96,7 +96,7 @@ def render(extraction, min_configs, hysteria2_links=C.DEFAULT_HYSTERIA2_LINKS):
     profile = build_profile(proxies, names)
     xray_config = build_xray_config(proxies)
     files = {
-        C.SUBSCRIPTION_LINKS_FILE: ("\n".join(links) + "\n").encode("utf-8") if links else b"",
+        C.SUBSCRIPTION_LINKS_FILE: render_subscription(links),
         C.SUBSCRIPTION_SINGBOX_FILE: render_profile(profile),
         C.SUBSCRIPTION_XRAY_FILE: render_xray_config(xray_config),
     }
@@ -105,8 +105,8 @@ def render(extraction, min_configs, hysteria2_links=C.DEFAULT_HYSTERIA2_LINKS):
 
 
 def verify_consistency(files, proxy_count, link_count):
-    links = files[C.SUBSCRIPTION_LINKS_FILE].decode("utf-8").splitlines()
-    if len(links) != link_count or any(not line.strip() for line in links):
+    _, links = split_subscription(files[C.SUBSCRIPTION_LINKS_FILE])
+    if len(links) != link_count:
         raise ValidationError("the share link list is inconsistent")
     profile = json.loads(files[C.SUBSCRIPTION_SINGBOX_FILE].decode("utf-8"))
     in_profile = [o for o in profile["outbounds"] if o["type"] in ("shadowsocks", "vless", "hysteria2")]
@@ -148,7 +148,7 @@ def run(
     )
     files, omitted = render(extraction, min_configs, hysteria2_links)
     ensure_no_state_in_files(files, state)
-    changed = write_files(Path(output_dir), files, allow_empty=(C.SUBSCRIPTION_LINKS_FILE,))
+    changed = write_files(Path(output_dir), files)
     junk = sum(1 for p in extraction.proxies if p.kind == "hysteria2" and p.outbound.get("pre_initial_junk"))
     return Result(
         count=len(extraction.proxies),
