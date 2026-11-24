@@ -45,12 +45,12 @@
       "tag": "👽 Anonymous L 🚀",
       "outbounds": [
         "👽 Anonymous L 🌐",
-        "🇳🇱 Netherlands · Amsterdam · VLESS",
-        "🇺🇸 U.S.A. · Phoenix · SS",
-        "🇺🇸 U.S.A. · Ashburn · VLESS",
+        "🇩🇪 Germany · Frankfurt · SS",
+        "🇩🇪 Germany · Frankfurt · VLESS",
+        "🇲🇽 Mexico · Monterrey · VLESS",
+        "🇳🇱 Netherlands · Amsterdam · SS",
         "🇬🇧 United Kingdom · Cardiff · SS",
-        "🇮🇹 Italy · Milan · VLESS",
-        "🇧🇷 Brazil · São Paulo · SS"
+        "🇺🇸 U.S.A. · Phoenix · SS"
       ],
       "default": "👽 Anonymous L 🌐"
     },
@@ -58,23 +58,52 @@
       "type": "urltest",
       "tag": "👽 Anonymous L 🌐",
       "outbounds": [
-        "🇳🇱 Netherlands · Amsterdam · VLESS",
-        "🇺🇸 U.S.A. · Phoenix · SS",
-        "🇺🇸 U.S.A. · Ashburn · VLESS",
+        "🇩🇪 Germany · Frankfurt · SS",
+        "🇩🇪 Germany · Frankfurt · VLESS",
+        "🇲🇽 Mexico · Monterrey · VLESS",
+        "🇳🇱 Netherlands · Amsterdam · SS",
         "🇬🇧 United Kingdom · Cardiff · SS",
-        "🇮🇹 Italy · Milan · VLESS",
-        "🇧🇷 Brazil · São Paulo · SS"
+        "🇺🇸 U.S.A. · Phoenix · SS"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "3m",
       "tolerance": 50
     },
     {
+      "type": "shadowsocks",
+      "tag": "🇩🇪 Germany · Frankfurt · SS",
+      "server": "47.85.227.36",
+      "server_port": 443,
+      "method": "2022-blake3-chacha20-poly1305",
+      "password": "3NBsnBLanPfG6i3S2GTHineswr6EeSJPb0PCeMQoGoA="
+    },
+    {
       "type": "vless",
-      "tag": "🇳🇱 Netherlands · Amsterdam · VLESS",
-      "server": "92.5.231.152",
-      "server_port": 61976,
-      "uuid": "528f359e-f7b8-4740-8f99-cb9b5b3898f5",
+      "tag": "🇩🇪 Germany · Frankfurt · VLESS",
+      "server": "93.114.56.206",
+      "server_port": 62658,
+      "uuid": "dba8db68-d957-4bd9-9bd3-aa486c790145",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.cloudflare.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU",
+          "short_id": "1f2519bb96e5589c"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇲🇽 Mexico · Monterrey · VLESS",
+      "server": "157.137.190.47",
+      "server_port": 59935,
+      "uuid": "3782e9d8-4867-44e4-9fae-401054d101ba",
       "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
@@ -92,32 +121,11 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "🇺🇸 U.S.A. · Phoenix · SS",
-      "server": "141.148.145.76",
-      "server_port": 50356,
+      "tag": "🇳🇱 Netherlands · Amsterdam · SS",
+      "server": "92.5.233.173",
+      "server_port": 45819,
       "method": "2022-blake3-chacha20-poly1305",
-      "password": "f7P7j9uDXyrv6CUj22ujIAsglU5sGhrjROAoPXD/tA0="
-    },
-    {
-      "type": "vless",
-      "tag": "🇺🇸 U.S.A. · Ashburn · VLESS",
-      "server": "172.233.202.240",
-      "server_port": 65202,
-      "uuid": "568ba536-998e-40a7-b687-c799ec876170",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.cloudflare.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU",
-          "short_id": "1f2519bb96e5589c"
-        }
-      }
+      "password": "Aqjkqw+eGmpqr8K1IBh5TdMxPd9WQ+2CcuHEAMtOUCI="
     },
     {
       "type": "shadowsocks",
@@ -128,33 +136,12 @@
       "password": "7bfGtqZI0yexAAmG5BdHHp/T510Jybh0leREyRtXtrk="
     },
     {
-      "type": "vless",
-      "tag": "🇮🇹 Italy · Milan · VLESS",
-      "server": "172.235.237.69",
-      "server_port": 60194,
-      "uuid": "ae03c367-c811-44af-aeeb-2a9df2fd3a53",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.cloudflare.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU",
-          "short_id": "1f2519bb96e5589c"
-        }
-      }
-    },
-    {
       "type": "shadowsocks",
-      "tag": "🇧🇷 Brazil · São Paulo · SS",
-      "server": "137.131.174.218",
-      "server_port": 59319,
+      "tag": "🇺🇸 U.S.A. · Phoenix · SS",
+      "server": "141.148.145.76",
+      "server_port": 50356,
       "method": "2022-blake3-chacha20-poly1305",
-      "password": "CXqfSnynZaN2QWJvEHP1Q9jxFrYa25Edf1TyM7kcb6M="
+      "password": "f7P7j9uDXyrv6CUj22ujIAsglU5sGhrjROAoPXD/tA0="
     },
     {
       "type": "direct",
