@@ -46,11 +46,11 @@
       "outbounds": [
         "👽 Anonymous L 🌐",
         "🇬🇧 United Kingdom · Cardiff · SS",
-        "🇰🇿 Kazakhstan · Almaty · VLESS",
-        "🇨🇱 Chile · Valparaiso · VLESS",
-        "🇧🇷 Brazil · São Paulo · SS",
+        "🇳🇱 Netherlands · Amsterdam · VLESS",
         "🇺🇸 U.S.A. · Phoenix · SS",
-        "🇳🇱 Netherlands · Amsterdam · VLESS"
+        "🇺🇸 U.S.A. · Ashburn · VLESS",
+        "🇩🇪 Germany · Frankfurt · VLESS",
+        "🇫🇷 France · Marseille · VLESS"
       ],
       "default": "👽 Anonymous L 🌐"
     },
@@ -59,11 +59,11 @@
       "tag": "👽 Anonymous L 🌐",
       "outbounds": [
         "🇬🇧 United Kingdom · Cardiff · SS",
-        "🇰🇿 Kazakhstan · Almaty · VLESS",
-        "🇨🇱 Chile · Valparaiso · VLESS",
-        "🇧🇷 Brazil · São Paulo · SS",
+        "🇳🇱 Netherlands · Amsterdam · VLESS",
         "🇺🇸 U.S.A. · Phoenix · SS",
-        "🇳🇱 Netherlands · Amsterdam · VLESS"
+        "🇺🇸 U.S.A. · Ashburn · VLESS",
+        "🇩🇪 Germany · Frankfurt · VLESS",
+        "🇫🇷 France · Marseille · VLESS"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "3m",
@@ -79,10 +79,10 @@
     },
     {
       "type": "vless",
-      "tag": "🇰🇿 Kazakhstan · Almaty · VLESS",
-      "server": "83.229.15.117",
-      "server_port": 60202,
-      "uuid": "7fbd947d-dd72-4c92-81c4-d8260dfd75db",
+      "tag": "🇳🇱 Netherlands · Amsterdam · VLESS",
+      "server": "92.5.231.152",
+      "server_port": 61976,
+      "uuid": "528f359e-f7b8-4740-8f99-cb9b5b3898f5",
       "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
@@ -97,35 +97,6 @@
           "short_id": "1f2519bb96e5589c"
         }
       }
-    },
-    {
-      "type": "vless",
-      "tag": "🇨🇱 Chile · Valparaiso · VLESS",
-      "server": "155.181.37.142",
-      "server_port": 59647,
-      "uuid": "dd1389d1-2573-4a1d-bb35-96b4b05c855a",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.cloudflare.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU",
-          "short_id": "1f2519bb96e5589c"
-        }
-      }
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "🇧🇷 Brazil · São Paulo · SS",
-      "server": "147.15.23.78",
-      "server_port": 59319,
-      "method": "2022-blake3-chacha20-poly1305",
-      "password": "/HeQAV0Jw/ztWVBlRGUdlF9oWGIByLrjW3n15fXZifk="
     },
     {
       "type": "shadowsocks",
@@ -137,10 +108,52 @@
     },
     {
       "type": "vless",
-      "tag": "🇳🇱 Netherlands · Amsterdam · VLESS",
-      "server": "92.5.231.152",
-      "server_port": 61976,
-      "uuid": "528f359e-f7b8-4740-8f99-cb9b5b3898f5",
+      "tag": "🇺🇸 U.S.A. · Ashburn · VLESS",
+      "server": "139.144.216.254",
+      "server_port": 64833,
+      "uuid": "046b3126-666a-46c3-a051-d9d2de7e556d",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.cloudflare.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU",
+          "short_id": "1f2519bb96e5589c"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇩🇪 Germany · Frankfurt · VLESS",
+      "server": "5.252.26.67",
+      "server_port": 64805,
+      "uuid": "718c0b28-98db-4a25-af54-576a60ea692a",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.cloudflare.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU",
+          "short_id": "1f2519bb96e5589c"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇫🇷 France · Marseille · VLESS",
+      "server": "129.151.229.134",
+      "server_port": 65183,
+      "uuid": "079a0937-8ddb-47fa-a6e6-02a3ff566a0d",
       "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
