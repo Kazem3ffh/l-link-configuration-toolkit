@@ -38,21 +38,11 @@
   ],
   "outbounds": [
     {
-      "protocol": "shadowsocks",
-      "settings": {
-        "address": "129.151.82.116",
-        "port": 61312,
-        "method": "2022-blake3-chacha20-poly1305",
-        "password": "7bfGtqZI0yexAAmG5BdHHp/T510Jybh0leREyRtXtrk="
-      },
-      "tag": "l-01-ss"
-    },
-    {
       "protocol": "vless",
       "settings": {
-        "address": "92.5.231.152",
-        "port": 61976,
-        "id": "528f359e-f7b8-4740-8f99-cb9b5b3898f5",
+        "address": "129.151.229.134",
+        "port": 65183,
+        "id": "079a0937-8ddb-47fa-a6e6-02a3ff566a0d",
         "encryption": "none",
         "flow": "xtls-rprx-vision"
       },
@@ -66,17 +56,7 @@
           "shortId": "1f2519bb96e5589c"
         }
       },
-      "tag": "l-02-vless"
-    },
-    {
-      "protocol": "shadowsocks",
-      "settings": {
-        "address": "141.148.145.76",
-        "port": 50356,
-        "method": "2022-blake3-chacha20-poly1305",
-        "password": "f7P7j9uDXyrv6CUj22ujIAsglU5sGhrjROAoPXD/tA0="
-      },
-      "tag": "l-03-ss"
+      "tag": "l-01-vless"
     },
     {
       "protocol": "vless",
@@ -97,49 +77,58 @@
           "shortId": "1f2519bb96e5589c"
         }
       },
+      "tag": "l-02-vless"
+    },
+    {
+      "protocol": "shadowsocks",
+      "settings": {
+        "address": "147.15.115.239",
+        "port": 59319,
+        "method": "2022-blake3-chacha20-poly1305",
+        "password": "ufRQNoVmSBchwcY7p814u5uoMZKgu/hJMN9RgfLrR7I="
+      },
+      "tag": "l-03-ss"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "address": "144.21.41.5",
+        "port": 59941,
+        "id": "49624dd3-fd8a-45a4-87d3-0e00fddb1065",
+        "encryption": "none",
+        "flow": "xtls-rprx-vision"
+      },
+      "streamSettings": {
+        "network": "raw",
+        "security": "reality",
+        "realitySettings": {
+          "serverName": "www.cloudflare.com",
+          "fingerprint": "chrome",
+          "password": "U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU",
+          "shortId": "1f2519bb96e5589c"
+        }
+      },
       "tag": "l-04-vless"
     },
     {
-      "protocol": "vless",
+      "protocol": "shadowsocks",
       "settings": {
-        "address": "5.252.26.67",
-        "port": 64805,
-        "id": "718c0b28-98db-4a25-af54-576a60ea692a",
-        "encryption": "none",
-        "flow": "xtls-rprx-vision"
+        "address": "129.151.82.116",
+        "port": 61312,
+        "method": "2022-blake3-chacha20-poly1305",
+        "password": "7bfGtqZI0yexAAmG5BdHHp/T510Jybh0leREyRtXtrk="
       },
-      "streamSettings": {
-        "network": "raw",
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "www.cloudflare.com",
-          "fingerprint": "chrome",
-          "password": "U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU",
-          "shortId": "1f2519bb96e5589c"
-        }
-      },
-      "tag": "l-05-vless"
+      "tag": "l-05-ss"
     },
     {
-      "protocol": "vless",
+      "protocol": "shadowsocks",
       "settings": {
-        "address": "129.151.229.134",
-        "port": 65183,
-        "id": "079a0937-8ddb-47fa-a6e6-02a3ff566a0d",
-        "encryption": "none",
-        "flow": "xtls-rprx-vision"
+        "address": "141.148.145.76",
+        "port": 50356,
+        "method": "2022-blake3-chacha20-poly1305",
+        "password": "f7P7j9uDXyrv6CUj22ujIAsglU5sGhrjROAoPXD/tA0="
       },
-      "streamSettings": {
-        "network": "raw",
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "www.cloudflare.com",
-          "fingerprint": "chrome",
-          "password": "U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU",
-          "shortId": "1f2519bb96e5589c"
-        }
-      },
-      "tag": "l-06-vless"
+      "tag": "l-06-ss"
     },
     {
       "tag": "direct",
@@ -158,7 +147,7 @@
         "selector": [
           "l-"
         ],
-        "fallbackTag": "l-01-ss",
+        "fallbackTag": "l-01-vless",
         "strategy": {
           "type": "leastPing"
         }
