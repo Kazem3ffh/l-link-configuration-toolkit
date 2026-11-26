@@ -38,46 +38,6 @@
   ],
   "outbounds": [
     {
-      "protocol": "vless",
-      "settings": {
-        "address": "34.247.162.95",
-        "port": 443,
-        "id": "fad6c240-14d0-47ce-9264-21c5f18689c1",
-        "encryption": "none",
-        "flow": "xtls-rprx-vision"
-      },
-      "streamSettings": {
-        "network": "raw",
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "www.amazon.com",
-          "fingerprint": "chrome",
-          "password": "ZODw0ijKEfbSpHjvQqTyYzsbLpnlnA3j9Io5PfmZ-Ts"
-        }
-      },
-      "tag": "l-01-vless"
-    },
-    {
-      "protocol": "shadowsocks",
-      "settings": {
-        "address": "3.120.151.58",
-        "port": 443,
-        "method": "2022-blake3-chacha20-poly1305",
-        "password": "8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y="
-      },
-      "tag": "l-02-ss"
-    },
-    {
-      "protocol": "shadowsocks",
-      "settings": {
-        "address": "35.177.3.53",
-        "port": 443,
-        "method": "2022-blake3-chacha20-poly1305",
-        "password": "Cg2Dw4OhdBZhqbeO9ZTA3g/Gk/AvsrYZGhAJeGnQIx4="
-      },
-      "tag": "l-03-ss"
-    },
-    {
       "protocol": "hysteria",
       "settings": {
         "version": 2,
@@ -115,7 +75,37 @@
           ]
         }
       },
-      "tag": "l-04-hy2"
+      "tag": "l-01-hy2"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "address": "34.247.162.95",
+        "port": 443,
+        "id": "fad6c240-14d0-47ce-9264-21c5f18689c1",
+        "encryption": "none",
+        "flow": "xtls-rprx-vision"
+      },
+      "streamSettings": {
+        "network": "raw",
+        "security": "reality",
+        "realitySettings": {
+          "serverName": "www.amazon.com",
+          "fingerprint": "chrome",
+          "password": "ZODw0ijKEfbSpHjvQqTyYzsbLpnlnA3j9Io5PfmZ-Ts"
+        }
+      },
+      "tag": "l-02-vless"
+    },
+    {
+      "protocol": "shadowsocks",
+      "settings": {
+        "address": "35.177.3.53",
+        "port": 443,
+        "method": "2022-blake3-chacha20-poly1305",
+        "password": "Cg2Dw4OhdBZhqbeO9ZTA3g/Gk/AvsrYZGhAJeGnQIx4="
+      },
+      "tag": "l-03-ss"
     },
     {
       "tag": "direct",
@@ -134,7 +124,7 @@
         "selector": [
           "l-"
         ],
-        "fallbackTag": "l-01-vless",
+        "fallbackTag": "l-01-hy2",
         "strategy": {
           "type": "leastPing"
         }
