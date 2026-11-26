@@ -58,6 +58,26 @@
       "tag": "l-01-vless"
     },
     {
+      "protocol": "shadowsocks",
+      "settings": {
+        "address": "3.120.151.58",
+        "port": 443,
+        "method": "2022-blake3-chacha20-poly1305",
+        "password": "8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y="
+      },
+      "tag": "l-02-ss"
+    },
+    {
+      "protocol": "shadowsocks",
+      "settings": {
+        "address": "35.177.3.53",
+        "port": 443,
+        "method": "2022-blake3-chacha20-poly1305",
+        "password": "Cg2Dw4OhdBZhqbeO9ZTA3g/Gk/AvsrYZGhAJeGnQIx4="
+      },
+      "tag": "l-03-ss"
+    },
+    {
       "protocol": "hysteria",
       "settings": {
         "version": 2,
@@ -95,17 +115,7 @@
           ]
         }
       },
-      "tag": "l-02-hy2"
-    },
-    {
-      "protocol": "shadowsocks",
-      "settings": {
-        "address": "35.177.3.53",
-        "port": 443,
-        "method": "2022-blake3-chacha20-poly1305",
-        "password": "Cg2Dw4OhdBZhqbeO9ZTA3g/Gk/AvsrYZGhAJeGnQIx4="
-      },
-      "tag": "l-03-ss"
+      "tag": "l-04-hy2"
     },
     {
       "tag": "direct",
