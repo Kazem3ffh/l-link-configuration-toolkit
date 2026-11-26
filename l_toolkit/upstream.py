@@ -11,7 +11,7 @@ DEFAULT_SINGBOX_VERSION = "v1.14.2-lantern.3"
 DEFAULT_LOCALE = "en-US"
 DEFAULT_TIME_ZONE = "Asia/Tehran"
 
-ADVERTISED_PROTOCOLS = ("shadowsocks", "vless", "hysteria2")
+ADVERTISED_PROTOCOLS = ("shadowsocks", "vless", "hysteria2x")
 ADVERTISED_CAPABILITIES = ()
 
 HEADER_APP_VERSION = "X-Lantern-App-Version"
@@ -26,4 +26,3 @@ HEADER_NOISE = "X-Lantern-Rand"
 
 ACCOUNT_FIELD_USER_ID = "userId"
 ACCOUNT_FIELD_TOKEN = "token"
-
