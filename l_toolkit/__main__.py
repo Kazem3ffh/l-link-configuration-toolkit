@@ -13,12 +13,12 @@ from .pipeline import run
 from .state import generate_key_text, parse_key
 
 
+TIME_ZONE_PATTERN = re.compile(r"^[A-Za-z][A-Za-z0-9_+-]*(/[A-Za-z0-9_+-]+)*$")
+
+
 def _env(name, default):
     value = os.environ.get(name, "")
     return value if value else default
-
-
-TIME_ZONE_PATTERN = re.compile(r"^(?:[+-](?:0[0-9]|1[0-4])(?::[0-5][0-9])?|Z)$")
 
 
 def _parser():
@@ -33,7 +33,7 @@ def _parser():
     parser.add_argument("--min-configs", type=int, default=int(_env("L_MIN_CONFIGS", C.MIN_CONFIGS)))
     parser.add_argument("--app-version", default=_env("L_UPSTREAM_APP_VERSION", U.DEFAULT_APP_VERSION))
     parser.add_argument("--singbox-version", default=_env("L_UPSTREAM_SINGBOX_VERSION", U.DEFAULT_SINGBOX_VERSION))
-    parser.add_argument("--time-zone", default=_env("L_TIME_ZONE", C.DEFAULT_TIME_ZONE))
+    parser.add_argument("--time-zone", default=os.environ.get("L_CLIENT_TIME_ZONE", U.DEFAULT_TIME_ZONE))
     parser.add_argument("--generate-key", action="store_true")
     return parser
 
@@ -51,8 +51,9 @@ def main(argv=None):
         print("--min-configs must be at least 1", file=sys.stderr)
         return 2
 
-    if not TIME_ZONE_PATTERN.fullmatch(args.time_zone):
-        print("--time-zone must be Z or an offset such as +03:30", file=sys.stderr)
+    time_zone = args.time_zone.strip()
+    if time_zone and not TIME_ZONE_PATTERN.match(time_zone):
+        print("--time-zone must be an IANA zone name such as Asia/Tehran, or empty", file=sys.stderr)
         return 2
 
     try:
@@ -63,25 +64,27 @@ def main(argv=None):
 
     client = UpstreamClient(
         country=args.country.strip().upper(),
+        time_zone=time_zone,
         app_version=args.app_version,
         singbox_version=args.singbox_version,
     )
 
     try:
-        result = run(client, args.state_file, args.output_dir, key, bootstrap=args.bootstrap, min_configs=args.min_configs, hysteria2_links=args.hysteria2_links, time_zone=args.time_zone)
+        result = run(client, args.state_file, args.output_dir, key, bootstrap=args.bootstrap, min_configs=args.min_configs, hysteria2_links=args.hysteria2_links)
     except ExporterError as exc:
         log.error("update failed, previous output kept: %s", exc)
         return 1
 
-    if result.configs_count < args.min_configs:
-        log.error(
-            "update failed, previous output kept: only %d configs (minimum %d)",
-            result.configs_count,
-            args.min_configs,
-        )
-        return 1
+    log.info("usable configs: %d (share links: %d)", result.count, result.link_count)
+    if result.links_omitted:
+        log.info("links omitted: %d", result.links_omitted)
+    if result.junk_not_expressible:
+        log.info("junk omitted: %d", result.junk_not_expressible)
+    if result.state_written:
+        log.info("new upstream account state saved")
+    if not result.changed:
+        log.info("no changes to write")
 
-    log.info("update succeeded: %d configs", result.configs_count)
     return 0
 
 
