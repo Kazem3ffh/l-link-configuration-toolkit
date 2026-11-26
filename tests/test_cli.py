@@ -30,6 +30,7 @@ def wired(monkeypatch, tmp_path, config_response, user_payload, key_text):
     monkeypatch.setenv(C.STATE_KEY_ENV, key_text)
     monkeypatch.delenv("L_BOOTSTRAP", raising=False)
     monkeypatch.delenv("L_HYSTERIA2_LINKS", raising=False)
+    monkeypatch.delenv("L_CLIENT_TIME_ZONE", raising=False)
     base = ["--output-dir", str(tmp_path / "out"), "--state-file", str(tmp_path / "s" / "state.enc")]
     return session, captured, base, tmp_path
 
@@ -103,9 +104,26 @@ def test_hysteria2_links_environment_switch(wired, monkeypatch):
 def test_client_receives_the_verified_default_identity(wired):
     _, captured, base, _ = wired
     cli.main(base + ["--bootstrap", "create"])
-    assert captured["app_version"] == "10.0.5"
+    assert captured["app_version"] == upstream.DEFAULT_APP_VERSION
     assert captured["singbox_version"] == upstream.DEFAULT_SINGBOX_VERSION
     assert captured["country"] == "IR"
+    assert captured["time_zone"] == upstream.DEFAULT_TIME_ZONE
+
+
+def test_time_zone_flag_and_environment_switch(wired, monkeypatch):
+    _, captured, base, _ = wired
+    cli.main(base + ["--bootstrap", "create", "--time-zone", ""])
+    assert captured["time_zone"] == ""
+    monkeypatch.setenv("L_CLIENT_TIME_ZONE", "Europe/Berlin")
+    cli.main(base + ["--bootstrap", "create"])
+    assert captured["time_zone"] == "Europe/Berlin"
+
+
+def test_invalid_time_zone_stops_before_any_request(wired, capsys):
+    session, _, base, _ = wired
+    assert cli.main(base + ["--time-zone", "not a zone!"]) == 2
+    assert session.calls == []
+    assert "IANA" in capsys.readouterr().err
 
 
 def test_blank_country_disables_the_header(wired):
