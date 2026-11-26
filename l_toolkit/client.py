@@ -50,6 +50,7 @@ class UpstreamClient:
         app_version=U.DEFAULT_APP_VERSION,
         singbox_version=U.DEFAULT_SINGBOX_VERSION,
         locale=U.DEFAULT_LOCALE,
+        time_zone=U.DEFAULT_TIME_ZONE,
         user_agent=C.DEFAULT_USER_AGENT,
         account_url=U.ACCOUNT_URL,
         config_url=U.CONFIG_URL,
@@ -63,6 +64,7 @@ class UpstreamClient:
         self.app_version = app_version
         self.singbox_version = singbox_version
         self.locale = locale
+        self.time_zone = time_zone
         self.user_agent = user_agent
         self.account_url = account_url.rstrip("/")
         self.config_url = config_url.rstrip("/")
@@ -87,6 +89,8 @@ class UpstreamClient:
         }
         if user_id > 0:
             headers[U.HEADER_USER_ID] = str(user_id)
+        if self.time_zone:
+            headers[U.HEADER_TIME_ZONE] = self.time_zone
         if self.country:
             headers[U.HEADER_CLIENT_COUNTRY] = self.country
         return headers
@@ -182,6 +186,8 @@ class UpstreamClient:
             "locale": self.locale,
             "protocols": list(U.ADVERTISED_PROTOCOLS),
         }
+        if U.ADVERTISED_CAPABILITIES:
+            body["capabilities"] = list(U.ADVERTISED_CAPABILITIES)
         return json.dumps(body).encode("utf-8")
 
     def fetch_config(self, state):
