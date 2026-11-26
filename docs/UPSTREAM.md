@@ -27,21 +27,22 @@ Headers on both requests:
 | Header | Value |
 | --- | --- |
 | `X-Lantern-App` | `lantern` |
-| `X-Lantern-App-Version` and `X-Lantern-Version` | `10.0.5` |
+| `X-Lantern-App-Version` and `X-Lantern-Version` | the app version set in `l_toolkit/upstream.py` |
 | `X-Lantern-Platform` | `linux` |
+| `X-Lantern-Time-Zone` | an IANA zone name (default `Asia/Tehran`, can be disabled), sent by the official client as well |
 | `X-Lantern-Device-Id` | a random UUID created once per installation |
 | `X-Lantern-Rand` | random lowercase letters, up to 299 characters, as the official client does |
 | `X-Lantern-Client-Country` | `IR` (can be disabled) |
 | `X-Lantern-User-Id` | only on the configuration request |
 
-JSON body of the configuration request: `device_id`, `singbox_version` (`v1.14.2-lantern.3`), `platform`, `app_name`, `user_id`, `pro_token`, `backend` (`sing-box`), `locale` (`en-US`) and `protocols` (`shadowsocks`, `vless`, `hysteria2x`).
+JSON body of the configuration request: `device_id`, `singbox_version` (set in `l_toolkit/upstream.py`), `platform`, `app_name`, `user_id`, `pro_token`, `backend` (`sing-box`), `locale` (`en-US`) `protocols` (`shadowsocks`, `vless`, `hysteria2x`) and, only when the list in `l_toolkit/upstream.py` is not empty, `capabilities`.
 
 Where the values come from:
 
-- The app version is the latest official release at the time of writing; the sing-box version is what the official client reports for its sing-box dependency. They are the only values known to be accepted. They can be changed with `L_UPSTREAM_APP_VERSION` and `L_UPSTREAM_SINGBOX_VERSION`.
+- Every value that identifies the toolkit to the upstream lives in one file, `l_toolkit/upstream.py`: the app version, the sing-box version, the platform, the locale, the time zone, the protocol list and the capability list. A version change is a one-line edit there. The app version follows the latest official release and the sing-box version is what the official client reports for its sing-box dependency. They can also be changed for a single run with `L_UPSTREAM_APP_VERSION` and `L_UPSTREAM_SINGBOX_VERSION`.
 - `protocols` lists only what the toolkit can publish. The official client also sends only the protocols it supports, and the server leaves out entries a client does not support.
 - No `preferred_location` is ever sent. In the official client that field is the exit country a user chooses; it is unrelated to the client country.
-- No `capabilities` are sent, because the toolkit implements none of them.
+- The capability list is empty on purpose. A capability tells the server that the client can handle an extra feature, and the toolkit implements none of them, so none is claimed. The official client sends several; adding one is a one-line edit of `ADVERTISED_CAPABILITIES` in `l_toolkit/upstream.py`.
 - `X-Lantern-Client-Country` is, in the official client, a developer override and not a documented production feature. The server has accepted it so far (its answers report the country that was requested), but that can change. Setting `L_CLIENT_COUNTRY` to an empty value stops the header from being sent.
 
 ## Request behaviour
