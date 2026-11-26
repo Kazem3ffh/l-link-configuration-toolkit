@@ -56,7 +56,7 @@ Entries of any other type, and entries with options the toolkit cannot express f
 ├── docs/
 │   └── UPSTREAM.md               technical notes about the upstream service
 ├── l_toolkit/
-│   ├── upstream.py               every upstream-specific constant (URLs, headers, versions)
+│   ├── upstream.py               every upstream-specific constant (URLs, headers, versions, protocols, capabilities)
 │   ├── client.py                 HTTP client with the retry rules
 │   ├── state.py                  AES-256-GCM encrypted account state
 │   ├── extract.py                parsing, validation, normalisation, duplicate detection
@@ -149,6 +149,7 @@ Only the first three are passed by the workflow; the rest are for local runs.
 | `L_BOOTSTRAP` | `--bootstrap` | `none` | `none`, `create` or `recreate`. |
 | `L_HYSTERIA2_LINKS` (variable) | `--hysteria2-links` | `omit` | `include` adds Hysteria2 to `sub.txt`. |
 | `L_CLIENT_COUNTRY` | `--country` | `IR` | Client country sent to the upstream, empty disables it. |
+| `L_CLIENT_TIME_ZONE` | `--time-zone` | `Asia/Tehran` | Time zone sent to the upstream, empty disables it. |
 | `L_MIN_CONFIGS` | `--min-configs` | `1` | Minimum usable configs required to publish. |
 | `L_UPSTREAM_APP_VERSION` | `--app-version` | see `l_toolkit/upstream.py` | App version reported to the upstream. |
 | `L_UPSTREAM_SINGBOX_VERSION` | `--singbox-version` | see `l_toolkit/upstream.py` | sing-box version reported to the upstream. |
