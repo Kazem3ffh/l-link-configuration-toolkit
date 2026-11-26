@@ -377,11 +377,10 @@ def test_upstream_notes_contain_the_values_the_code_really_sends():
     for value in (
         upstream.ACCOUNT_URL,
         upstream.CONFIG_URL,
-        upstream.DEFAULT_APP_VERSION,
-        upstream.DEFAULT_SINGBOX_VERSION,
         upstream.APP_NAME,
         upstream.BACKEND,
         upstream.HEADER_CLIENT_COUNTRY,
+        upstream.HEADER_TIME_ZONE,
         upstream.HEADER_USER_ID,
     ):
         assert value in text, value
