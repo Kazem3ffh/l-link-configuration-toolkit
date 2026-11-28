@@ -40,7 +40,7 @@
     {
       "protocol": "vless",
       "settings": {
-        "address": "54.195.128.52",
+        "address": "3.248.196.241",
         "port": 443,
         "id": "fad6c240-14d0-47ce-9264-21c5f18689c1",
         "encryption": "none",
@@ -66,6 +66,16 @@
         "password": "Cg2Dw4OhdBZhqbeO9ZTA3g/Gk/AvsrYZGhAJeGnQIx4="
       },
       "tag": "l-02-ss"
+    },
+    {
+      "protocol": "shadowsocks",
+      "settings": {
+        "address": "3.79.247.246",
+        "port": 443,
+        "method": "2022-blake3-chacha20-poly1305",
+        "password": "8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y="
+      },
+      "tag": "l-03-ss"
     },
     {
       "tag": "direct",

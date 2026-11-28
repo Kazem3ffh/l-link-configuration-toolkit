@@ -46,7 +46,8 @@
       "outbounds": [
         "👽 Anonymous L 🌐",
         "🇩🇪 Germany · Frankfurt · VLESS",
-        "🇩🇪 Germany · Frankfurt · SS"
+        "🇩🇪 Germany · Frankfurt · SS",
+        "🇩🇪 Germany · Frankfurt · SS #2"
       ],
       "default": "👽 Anonymous L 🌐"
     },
@@ -55,7 +56,8 @@
       "tag": "👽 Anonymous L 🌐",
       "outbounds": [
         "🇩🇪 Germany · Frankfurt · VLESS",
-        "🇩🇪 Germany · Frankfurt · SS"
+        "🇩🇪 Germany · Frankfurt · SS",
+        "🇩🇪 Germany · Frankfurt · SS #2"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "3m",
@@ -64,7 +66,7 @@
     {
       "type": "vless",
       "tag": "🇩🇪 Germany · Frankfurt · VLESS",
-      "server": "54.195.128.52",
+      "server": "3.248.196.241",
       "server_port": 443,
       "uuid": "fad6c240-14d0-47ce-9264-21c5f18689c1",
       "flow": "xtls-rprx-vision",
@@ -88,6 +90,14 @@
       "server_port": 443,
       "method": "2022-blake3-chacha20-poly1305",
       "password": "Cg2Dw4OhdBZhqbeO9ZTA3g/Gk/AvsrYZGhAJeGnQIx4="
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "🇩🇪 Germany · Frankfurt · SS #2",
+      "server": "3.79.247.246",
+      "server_port": 443,
+      "method": "2022-blake3-chacha20-poly1305",
+      "password": "8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y="
     },
     {
       "type": "direct",
